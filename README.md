@@ -1,6 +1,14 @@
-# NFT Mint API
+# TradeRooms NFT Management API
 
-A Node.js backend API for minting and updating NFTs using the Metaplex Core protocol on the Solana blockchain.
+We built the **TradeRooms NFT Management API** in NodeJS to take direct control over NFT creation and updating on Solana using **Metaplex Core**. Our front-end runs in React, and our main back-end in Python (Django) calls this Node service whenever NFTs need to be minted or updated. This design gives us more flexibility and reliability compared to relying on third-party APIs.
+
+Previously, we minted compressed NFTs by calling the **Underdog Protocol API** from our Django back-end. While this worked for scale, it introduced extra dependencies and complexity. By switching to **Metaplex Core NFTs**, we gain:
+
+- **Simplicity** – no Merkle proofs or external indexers, all NFT data lives in one account.
+- **Reliability** – ownership and metadata are fully on-chain, not tied to an external service.
+- **Better UX** – faster, predictable reads directly from the blockchain.
+
+This setup ensures that TradeRooms NFTs remain transparent, portable, and future-proof while keeping our minting pipeline under our own control.
 
 ## Features
 
@@ -14,7 +22,7 @@ A Node.js backend API for minting and updating NFTs using the Metaplex Core prot
 
 ## Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - Solana wallet with SOL for transaction fees
 - Existing NFT collection on Solana (created separately)
 
